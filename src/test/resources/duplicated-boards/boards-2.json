@@ -1,0 +1,16 @@
+{
+  "boards": [
+    {
+      "name": "D4-200S",
+      "vendor": "Boards R Us",
+      "core": "Cortex-M4",
+      "has_wifi": false
+    },
+    {
+      "name": "B7-400X",
+      "vendor": "Boards R Us",
+      "core": "Cortex-M7",
+      "has_wifi": true
+    }
+  ]
+}
