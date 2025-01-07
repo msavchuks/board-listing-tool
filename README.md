@@ -11,23 +11,12 @@
 - There are total of 466 boards available. Assuming 200 bytes per board the total of 94kb is needed to store everything,
   so the data can be handled in memory.
 - If name and vendor match, but other board properties are different we will log a warning but include both boards in
-  the output ordered by core and wifi presence
+  the output ordered by core and WiFi presence
 
-## Java & Gradle
+## Java
 
-The Gradle project has JDK auto download enabled, so the required JDK version will be downloaded unless already
-present on the system. One of JVM versions 8-23 must be present on the system to start the Gradle for the first time.
-Installation location can be found with `./gradlew -q javaToolchains` or `gradlew.bat -q javaToolchains` for windows
-
-```
- + Eclipse Temurin JDK 21.0.5+11-LTS
-     | Location:           /home/developer/.gradle/jdks/eclipse_adoptium-21-amd64-linux.2
-     | Language Version:   21
-     | Vendor:             Eclipse Temurin
-     | Architecture:       amd64
-     | Is JDK:             true
-     | Detected by:        Auto-provisioned by Gradle
-```
+Please install JDK 21 or higher and set `JAVA_HOME`. A good source is https://adoptium.net/temurin/releases/ or SDKMAN
+for Linux/Mac.
 
 ## Build
 
@@ -36,11 +25,18 @@ under the `./build/libs/` path. Execution scripts assume that the JAR file exist
 
 ## Run
 
-Ensure `JAVA_HOME` is pointing to a folder with at least Java 21.
+For systems with bash installed
 
 - Run `./build-list.sh help` to see general help message
 - Run `./build-list.sh help build` to see help message for the command
 - Run `./build-list.sh build --inputDir src/test/resources/example-boards/ --outputFile boards.json` to process files
+  in the `src/test/resources/example-boards` and output JSON into 'boards.json' file
+
+For Windows without bash:
+
+- Run `build-list.bat help` to see general help message
+- Run `build-list.bat help build` to see help message for the command
+- Run `build-list.bat build --inputDir src/test/resources/example-boards/ --outputFile boards.json` to process files
   in the `src/test/resources/example-boards` and output JSON into 'boards.json' file
 
 ## Time taken
@@ -49,10 +45,10 @@ In total the assignment took me slightly more than 3 hours. Rough estimate would
 
 - Research: 30m
 - Development: 2.5h
-- Documentation, testing under Windows, etc: 30m
+- Documentation, testing under Windows, and other minor things: 30m
 
 ## Potential improvements
 
-- More consistent error reporting. Right now some errors are logged as a stack trace, some with messages.
+- More consistent error reporting and logging. Right now some errors are logged as a stack trace, some with messages.
 - Make output file optional and output directly to terminal if not present.
 - Look into parallel file reading. Might be worth it depending on the average file size.
