@@ -20,7 +20,7 @@ for Linux/Mac.
 
 ## Build
 
-To build the application run `./gradlew clean build` or `gradlew.bat clean build` on linux. This will create a JAR file
+To build the application run `./gradlew clean build` or `gradlew.bat clean build` on Windows. This will create a JAR file
 under the `./build/libs/` path. Execution scripts assume that the JAR file exists in this location.
 
 ## Run
@@ -52,3 +52,4 @@ In total the assignment took me slightly more than 3 hours. Rough estimate would
 - More consistent error reporting and logging. Right now some errors are logged as a stack trace, some with messages.
 - Make output file optional and output directly to terminal if not present.
 - Look into parallel file reading. Might be worth it depending on the average file size.
+- Implement web server version
